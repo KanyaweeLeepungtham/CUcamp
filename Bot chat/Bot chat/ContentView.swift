@@ -101,7 +101,9 @@ struct ContentView: View {
                     .background(Color.black.opacity(0))
                     .onSubmit {
                        SendMessage(message: messageText)
+                        
                     }
+             //       .focused(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=$isFocused@*/FocusState<Bool>().projectedValue/*@END_MENU_TOKEN@*/)
                 
                 Button {
                     // sendMessage
