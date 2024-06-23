@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var messageText = ""
-    @State var messages: [String] = ["Welcome to Chat Bot 1.0"]
+    @State var messages: [String] = ["Welcome to Chat Bot V.1.0"]
         
     var body: some View {
         VStack {
@@ -18,7 +18,8 @@ struct ContentView: View {
                     .font(.largeTitle)
                     .bold()
                 
-                Image(systemName: "bubble.left.fill")    .font(.system(size: 26))
+                Image(systemName: "bubble.left.fill")  
+                    .font(.system(size: 26))
                     .foregroundColor(Color.blue)
             }
             
@@ -28,28 +29,37 @@ struct ContentView: View {
                         let newMessage = message.replacingOccurrences(of: "[USER]", with: "")
                         
                         HStack {
-                            Spacer()
+                           
+                           Spacer()
                             Text(newMessage)
                                 .padding()
                                 .foregroundColor(.white)
                                 .background(.blue.opacity(0.8))
                                 .cornerRadius(10)
-                                .padding(.horizontal, 16)
+                                .padding(.horizontal, -5 )
                                 .padding(.bottom, 10)
+                            
+                            Image("cat")
+                                  .resizable()
+                                  .frame(width: 60, height: 60)
+                                  .padding(.horizontal, 1)
+                                  .padding(.bottom, 10)
                         }
                     } else {
                         HStack {
                         
-                            Image(systemName: "person.crop.circle")
+                            Image("botim")
                                   .resizable()
-                                  .frame(width: 40, height: 40)
+                                  .frame(width: 60, height: 60)
+                                  .padding(.horizontal, 1)
+                                  .padding(.bottom, 10)
                        
                             
                             
                             Text(message)
                                 .padding()
-                                .foregroundColor(.white)
-                                .background(.gray.opacity(1.5))
+                                .foregroundColor(.black)
+                                .background(.white.opacity(1.0))
                                 .cornerRadius(10)
                                 .padding(.horizontal, 16)
                                 .padding(.bottom, 10)
@@ -60,12 +70,15 @@ struct ContentView: View {
                     }
                 }.rotationEffect(.degrees(180))
             }.rotationEffect(.degrees(180))
-                .background(Color.gray.opacity(0.15))
+                .background(Image("sky").resizable().opacity(0.7).frame(width: 400 , height: 600))
+              //  .background(Color.gray.opacity(1))
+                
+              
             
             HStack {
-                TextField("Type something", text: $messageText)
+                TextField("Type something |", text: $messageText)
                     .padding()
-                    .background(Color.gray.opacity(0.1))
+                    .background(Color.black.opacity(0))
                     .onSubmit {
                        SendMessage(message: messageText)
                     }
