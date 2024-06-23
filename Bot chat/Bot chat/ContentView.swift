@@ -39,21 +39,28 @@ struct ContentView: View {
                         }
                     } else {
                         HStack {
+                        
+                            Image(systemName: "person.crop.circle")
+                                  .resizable()
+                                  .frame(width: 40, height: 40)
+                       
+                            
                             
                             Text(message)
                                 .padding()
                                 .foregroundColor(.white)
-                                .background(.gray.opacity(1.0))
+                                .background(.gray.opacity(1.5))
                                 .cornerRadius(10)
                                 .padding(.horizontal, 16)
                                 .padding(.bottom, 10)
+                          
                             
                             Spacer()
                         }
                     }
                 }.rotationEffect(.degrees(180))
             }.rotationEffect(.degrees(180))
-                .background(Color.purple.opacity(0.15))
+                .background(Color.gray.opacity(0.15))
             
             HStack {
                 TextField("Type something", text: $messageText)
