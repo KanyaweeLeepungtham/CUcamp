@@ -53,7 +53,7 @@ struct ContentView: View {
                     }
                 }.rotationEffect(.degrees(180))
             }.rotationEffect(.degrees(180))
-                .background(Color.gray.opacity(0.10))
+                .background(Color.purple.opacity(0.15))
             
             HStack {
                 TextField("Type something", text: $messageText)
