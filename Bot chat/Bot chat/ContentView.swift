@@ -13,13 +13,14 @@ struct ContentView: View {
         
     var body: some View {
         VStack {
-            HStack {
+            HStack(alignment: .center)
+            {
                 Text("iBot")
                     .font(.largeTitle)
                     .bold()
                 
                 Image(systemName: "bubble.left.fill")  
-                    .font(.system(size: 26))
+                    .font(.system(size: 30))
                     .foregroundColor(Color.blue)
             }
             
@@ -29,8 +30,11 @@ struct ContentView: View {
                         let newMessage = message.replacingOccurrences(of: "[USER]", with: "")
                         
                         HStack {
-                           
-                           Spacer()
+                            
+                            
+                            
+                            Spacer()
+                             ZStack(alignment: .topLeading){
                             Text(newMessage)
                                 .padding()
                                 .foregroundColor(.white)
@@ -38,14 +42,23 @@ struct ContentView: View {
                                 .cornerRadius(10)
                                 .padding(.horizontal, -5 )
                                 .padding(.bottom, 10)
-                            
-                            Image("cat")
-                                  .resizable()
-                                  .frame(width: 60, height: 60)
-                                  .padding(.horizontal, 1)
-                                  .padding(.bottom, 10)
+                            Image("moon")
+                             .resizable()
+                             .frame(width: 40, height: 40)
+                             .offset(x : -20 , y : -20)
                         }
-                    } else {
+                                Image("cat")
+                                    .resizable()
+                                    .frame(width: 60, height: 60)
+                                    .padding(.horizontal, 1)
+                                    .padding(.bottom, 10)
+                                 //   .offset(x: 10, y: 10)
+                                
+                               
+                            }
+                        }
+                     
+                else {
                         HStack {
                         
                             Image("botim")
@@ -55,15 +68,22 @@ struct ContentView: View {
                                   .padding(.bottom, 10)
                        
                             
-                            
-                            Text(message)
-                                .padding()
-                                .foregroundColor(.black)
-                                .background(.white.opacity(1.0))
-                                .cornerRadius(10)
-                                .padding(.horizontal, 16)
-                                .padding(.bottom, 10)
-                          
+                            ZStack(alignment: .bottomLeading) {
+                                Text(message)
+                                    .padding()
+                                    .foregroundColor(.black)
+                                    .background(.white.opacity(1.0))
+                                    .cornerRadius(10)
+                                    
+                                
+                                Image("star")
+                                    .resizable()
+                                    .frame(width: 40, height: 40)
+                                    .offset(x: -10, y: 10)
+                                
+                            }
+                            .padding(.horizontal, 16)
+                            .padding(.bottom, 10)
                             
                             Spacer()
                         }
